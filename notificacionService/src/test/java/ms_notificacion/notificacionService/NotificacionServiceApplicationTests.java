@@ -1,4 +1,4 @@
-package ms_notificacion.notificacionService;
+package ms_notificacion.notificacionservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package ms_notificacion.notificacionService;
+package ms_notificacion.notificacionservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
