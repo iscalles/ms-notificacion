@@ -14,8 +14,8 @@ public class HistorialNotificacion {
     @SequenceGenerator(name = "historial_notificacion_seq", sequenceName = "seq_historial_notificacion", allocationSize = 1)
     private Long id_notificacion;
 
-    @Column(name = "RUT_DESTINATARIO", nullable = false, length = 12)
-    private String rutDestinatario;
+    @Column(name = "USUARIO_DESTINATARIO", nullable = false)
+    private Long usuarioDestinatario;
 
     @Column(name = "TIPO_CANAL", length = 20)
     private String tipoCanal;
@@ -39,9 +39,9 @@ public class HistorialNotificacion {
     }
 
 
-    public HistorialNotificacion(Long id_notificacion, String rutDestinatario, String tipoCanal, String asunto, String mensaje, LocalDateTime fechaEnvio, String estadoEnvio) {
+    public HistorialNotificacion(Long id_notificacion, Long usuarioDestinatario, String tipoCanal, String asunto, String mensaje, LocalDateTime fechaEnvio, String estadoEnvio) {
         this.id_notificacion = id_notificacion;
-        this.rutDestinatario = rutDestinatario;
+        this.usuarioDestinatario = usuarioDestinatario;
         this.tipoCanal = tipoCanal;
         this.asunto = asunto;
         this.mensaje = mensaje;
@@ -90,12 +90,12 @@ public class HistorialNotificacion {
         this.tipoCanal = tipoCanal;
     }
 
-    public String getRutDestinatario() {
-        return rutDestinatario;
+    public Long getUsuarioDestinatario() {
+        return usuarioDestinatario;
     }
 
-    public void setRutDestinatario(String rutDestinatario) {
-        this.rutDestinatario = rutDestinatario;
+    public void setUsuarioDestinatario(Long usuarioDestinatario) {
+        this.usuarioDestinatario = usuarioDestinatario;
     }
 
     public Long getId() {

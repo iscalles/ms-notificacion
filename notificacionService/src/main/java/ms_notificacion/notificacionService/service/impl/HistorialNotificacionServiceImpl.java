@@ -37,7 +37,7 @@ public class HistorialNotificacionServiceImpl implements HistorialNotificacionSe
             historialExistente.setAsunto(historialNotificacion.getAsunto());
             historialExistente.setMensaje(historialNotificacion.getMensaje());
             historialExistente.setFechaEnvio(historialNotificacion.getFechaEnvio());
-            historialExistente.setRutDestinatario(historialNotificacion.getRutDestinatario());
+            historialExistente.setUsuarioDestinatario(historialNotificacion.getUsuarioDestinatario());
             historialExistente.setTipoCanal(historialNotificacion.getTipoCanal());
             historialExistente.setEstadoEnvio(historialNotificacion.getEstadoEnvio());
             return historialNotificacionRepository.save(historialExistente);
