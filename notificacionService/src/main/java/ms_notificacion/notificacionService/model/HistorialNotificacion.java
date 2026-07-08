@@ -17,8 +17,11 @@ public class HistorialNotificacion {
     @Column(name = "USUARIO_DESTINATARIO", nullable = false)
     private Long usuarioDestinatario;
 
-    @Column(name = "TIPO_CANAL", length = 20)
-    private String tipoCanal;
+    @Column(name = "TIPO_NOTIFICACION", length = 20, nullable = false)
+    private String tipoNotificacion;
+
+    @Column(name = "ID_REFERENCIA")
+    private Long idReferencia;
 
     @Column(name = "ASUNTO", length = 200)
     private String asunto;
@@ -27,67 +30,41 @@ public class HistorialNotificacion {
     @Column(name = "MENSAJE")
     private String mensaje;
 
+    @Column(name = "LEIDA", nullable = false)
+    private boolean leida = false;
+
     @JsonFormat(pattern="dd-MM-yyyy HH:mm",timezone = "America/Santiago")
-    @Column(name = "FECHA_ENVIO")
+    @Column(name = "FECHA_ENVIO", nullable = false)
     private LocalDateTime fechaEnvio;
 
-    @Column(name = "ESTADO_ENVIO", length = 20)
-    private String estadoEnvio;
+    @JsonFormat(pattern="dd-MM-yyyy HH:mm",timezone = "America/Santiago")
+    @Column(name = "FECHA_LECTURA")
+    private LocalDateTime fechaLectura;
 
     public HistorialNotificacion() {
 
     }
 
-
-    public HistorialNotificacion(Long id_notificacion, Long usuarioDestinatario, String tipoCanal, String asunto, String mensaje, LocalDateTime fechaEnvio, String estadoEnvio) {
+    public HistorialNotificacion(Long id_notificacion, Long usuarioDestinatario, String tipoNotificacion,
+                                  Long idReferencia, String asunto, String mensaje, boolean leida,
+                                  LocalDateTime fechaEnvio, LocalDateTime fechaLectura) {
         this.id_notificacion = id_notificacion;
         this.usuarioDestinatario = usuarioDestinatario;
-        this.tipoCanal = tipoCanal;
+        this.tipoNotificacion = tipoNotificacion;
+        this.idReferencia = idReferencia;
         this.asunto = asunto;
         this.mensaje = mensaje;
+        this.leida = leida;
         this.fechaEnvio = fechaEnvio;
-        this.estadoEnvio = estadoEnvio;
+        this.fechaLectura = fechaLectura;
     }
 
-
-    public String getEstadoEnvio() {
-        return estadoEnvio;
+    public Long getId() {
+        return id_notificacion;
     }
 
-    public void setEstadoEnvio(String estadoEnvio) {
-        this.estadoEnvio = estadoEnvio;
-    }
-
-    public LocalDateTime getFechaEnvio() {
-        return fechaEnvio;
-    }
-
-    public void setFechaEnvio(LocalDateTime fechaEnvio) {
-        this.fechaEnvio = fechaEnvio;
-    }
-
-    public String getMensaje() {
-        return mensaje;
-    }
-
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
-
-    public String getAsunto() {
-        return asunto;
-    }
-
-    public void setAsunto(String asunto) {
-        this.asunto = asunto;
-    }
-
-    public String getTipoCanal() {
-        return tipoCanal;
-    }
-
-    public void setTipoCanal(String tipoCanal) {
-        this.tipoCanal = tipoCanal;
+    public void setId(Long id) {
+        this.id_notificacion = id;
     }
 
     public Long getUsuarioDestinatario() {
@@ -98,11 +75,59 @@ public class HistorialNotificacion {
         this.usuarioDestinatario = usuarioDestinatario;
     }
 
-    public Long getId() {
-        return id_notificacion;
+    public String getTipoNotificacion() {
+        return tipoNotificacion;
     }
 
-    public void setId(Long id) {
-        this.id_notificacion = id;
+    public void setTipoNotificacion(String tipoNotificacion) {
+        this.tipoNotificacion = tipoNotificacion;
+    }
+
+    public Long getIdReferencia() {
+        return idReferencia;
+    }
+
+    public void setIdReferencia(Long idReferencia) {
+        this.idReferencia = idReferencia;
+    }
+
+    public String getAsunto() {
+        return asunto;
+    }
+
+    public void setAsunto(String asunto) {
+        this.asunto = asunto;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    public boolean isLeida() {
+        return leida;
+    }
+
+    public void setLeida(boolean leida) {
+        this.leida = leida;
+    }
+
+    public LocalDateTime getFechaEnvio() {
+        return fechaEnvio;
+    }
+
+    public void setFechaEnvio(LocalDateTime fechaEnvio) {
+        this.fechaEnvio = fechaEnvio;
+    }
+
+    public LocalDateTime getFechaLectura() {
+        return fechaLectura;
+    }
+
+    public void setFechaLectura(LocalDateTime fechaLectura) {
+        this.fechaLectura = fechaLectura;
     }
 }
